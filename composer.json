@@ -1,0 +1,21 @@
+{
+    "name": "dam1r89/glob-match",
+    "description": "Glob style string matching",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Damir Miladinov",
+            "email": "damir89@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "dam1r89\\GlobMatch\\": ["src/", "tests/"]
+        }
+    },
+    "require": {},
+    "require-dev": {
+        "phpunit/phpunit": "^6.1"
+    }
+}
