@@ -34,4 +34,21 @@ class GlobMatchTest extends TestCase
         $glob = new GlobMatch();
         $this->assertTrue($glob->match('pizza *', 'pizza something'));
     }
+
+    public function testWildcardInMiddle()
+    {
+        $glob = new GlobMatch();
+        $this->assertTrue($glob->match('pizza * is awesome', 'pizza with chease is awesome'));
+        $this->assertFalse($glob->match('pizza * is awesome', 'pizza with meat is not awesome'));
+
+        $this->assertTrue($glob->match('pizza ? is awesome', 'pizza 1 is awesome'));
+        $this->assertFalse($glob->match('pizza ? is awesome', 'pizza 2 is not awesome'));
+
+        $this->assertTrue($glob->match('pizza * is * awesome', 'pizza with hings is really awesome'));
+        $this->assertFalse($glob->match('pizza * is *', 'pizza with hings isn\'t really something'));
+
+        $this->assertTrue($glob->match('pizza * is awesome', 'pizza with cheese is awesome'));
+        $this->assertFalse($glob->match('pizza * is awesome', 'pizza with cheese is not awesome'));
+
+    }
 }

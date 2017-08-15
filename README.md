@@ -15,6 +15,9 @@ use dam1r89\GlobMatch\GlobMatch;
 
 $glob = new GlobMatch();
 $glob->match('pattern *', 'pattern is matched'); // => true
+
+$glob->match('pizza * is awesome', 'pizza with cheese is awesome'); // => true
+$glob->match('pizza * is awesome', 'pizza with cheese is not awesome'); // => false
 ```
 
 
